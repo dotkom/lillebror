@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  keycloak:
+    container_name: keycloak
+    image: 'jboss/keycloak'
+    env_file: './.env'
+    ports:
+      - "8081:8080"
