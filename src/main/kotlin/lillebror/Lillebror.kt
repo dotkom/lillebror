@@ -27,5 +27,5 @@ fun main(args: Array<String>) {
     routes.add(HttpMethod.get, RouteImpl.create("/*", {req : Request, res -> Lillebror().greeting + " " + req.pathInfo() }))
 
     val server : EmbeddedServer = EmbeddedJettyFactory().create(routes, fileconf, true)
-    server.ignite("localhost", 8080, null, 4, 1, 2000)
+    server.ignite("localhost", 9000, null, 4, 1, 2000)
 }
