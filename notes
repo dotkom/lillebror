@@ -1,0 +1,27 @@
+# Glosary
+ - Consumer: a client that requests some data from a provider
+ - Provider: a client that provides some data for consumers
+ - User: a keycloak user
+
+
+
+# Data models
+
+Permissions
+
+{
+  "provider.data.read", -- access to read data
+  "provider.data.write", -- access to change/write data
+}
+
+# Api overview
+
+
+
+
+
+# Get requests
+
+
+
+## Get permissions granted from a consumer to provider
