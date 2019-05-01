@@ -3,15 +3,29 @@
  */
 package lillebror
 
-import spark.Spark.*
+
+import spark.embeddedserver.EmbeddedServerFactory;
+import spark.embeddedserver.EmbeddedServer;
+import spark.embeddedserver.jetty.EmbeddedJettyFactory;
+import spark.staticfiles.StaticFilesConfiguration
+import spark.route.Routes
+import spark.route.HttpMethod
+import spark.RouteImpl
+import spark.Request
 
 class Lillebror {
     val greeting: String
         get() {
             return "Hello world."
         }
+    
 }
-
 fun main(args: Array<String>) {
-    get("/hello", {req, res -> Lillebror().greeting})
+
+    var fileconf : StaticFilesConfiguration = StaticFilesConfiguration()
+    val routes : Routes = Routes.create()   
+    routes.add(HttpMethod.get, RouteImpl.create("/*", {req : Request, res -> Lillebror().greeting + " " + req.pathInfo() }))
+
+    val server : EmbeddedServer = EmbeddedJettyFactory().create(routes, fileconf, true)
+    server.ignite("localhost", 8080, null, 4, 1, 2000)
 }
