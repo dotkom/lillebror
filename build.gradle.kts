@@ -40,5 +40,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = "lillebror.AppKt"
+    mainClassName = "lillebror.LillebrorKt"
 }

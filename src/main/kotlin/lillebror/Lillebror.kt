@@ -5,7 +5,7 @@ package lillebror
 
 import spark.Spark.*
 
-class App {
+class Lillebror {
     val greeting: String
         get() {
             return "Hello world."
@@ -13,5 +13,5 @@ class App {
 }
 
 fun main(args: Array<String>) {
-    get("/hello", {req, res -> App().greeting})
+    get("/hello", {req, res -> Lillebror().greeting})
 }
